@@ -1,23 +1,37 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
 import './App.css';
 
 function App() {
+
+  useEffect(() => {
+
+    fetch("http://localhost:8000/products")
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.error(err)
+    })
+
+  }, [])
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img src={'./logo.svg'} className="App-logo" alt="logo" />
+        <nav>
+          <ul>
+            <li>API 1</li>
+            <li>API 2</li>
+            <li>API 3</li>
+          </ul>
+        </nav>
       </header>
+      <main>
+        <h1>API tester front-end</h1>
+        <div className='api-GET-card'>
+          <p>Velit Lorem rutrum conubia blandit molestie persian semper norwegian forest cat petting eyes arcu loves eyes Praesent french! Mr. Kitty id chase the red dot Aliquam classy pellentesque urna ambush, success nec buddy nulla neque eyes peaceful cat. At, medium hair kitten furball grazing ipsum birdwatch tortor couch finally ham cat headbutt accumsan in? Faucibus ac sagittis nulla pellentesque her front he amet, buddy buddy give me fish friend quam chuf. Libero heart sit honey lorem mi vel success tortor Quisque felis nec dolor semper facilisis volutpat taciti, claw sem he she. Iaculis est eu jump on the table girlfriend neighbors conubia feugiat feed me flying Curabitur cuddles torquent diam cats. Belly, puss and boots nascetur kitty saved?</p>
+        </div>
+      </main>
     </div>
   );
 }
