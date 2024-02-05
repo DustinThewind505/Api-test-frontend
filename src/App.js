@@ -1,13 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+  let [fetchData, setFetchData] = useState([])
 
   useEffect(() => {
 
     fetch("http://localhost:8000/products")
     .then(res => {
-      console.log(res)
+      setFetchData(res)
+      console.log(fetchData)
     })
     .catch(err => {
       console.error(err)
@@ -17,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={'./logo.svg'} className="App-logo" alt="logo" />
+        <img src={'./images/logo192.png'} className="App-logo" alt="logo" />
         <nav>
           <ul>
             <li>API 1</li>
